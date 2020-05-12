@@ -4,16 +4,18 @@ const Header = (props) => {
   return (
     <header>
       <form onSubmit={submitHandler}>
-        <label>New Task:&nbsp;</label>
         <input
           type="text"
           name="newValue"
+          placeholder="New Task..."
           value={newValue}
           onChange={inputHandler}
         />
-        <input type="submit" name="submit" value="Add Task" />
+        <div>
+          <input type="submit" name="submit" value="Add Task" />
+          <button onClick={clearCompleted}>Clear Completed</button>
+        </div>
       </form>
-      <button onClick={clearCompleted}>Clear Completed</button>
     </header>
   );
 };
