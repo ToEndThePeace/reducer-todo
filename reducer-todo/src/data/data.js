@@ -1,10 +1,10 @@
 import { v4 as uuid } from "uuid";
+import moment from "moment";
 
 const list = [
-  { id: uuid(), name: "Dance", completed: false },
-  { id: uuid(), name: "Sing", completed: false },
-  { id: uuid(), name: "Laugh", completed: false },
-  { id: uuid(), name: "Twerk", completed: true }
+  { id: uuid(), name: "Dance", completed: false, timestamp: null },
+  { id: uuid(), name: "Sing", completed: false, timestamp: null },
+  { id: uuid(), name: "Laugh", completed: false, timestamp: null }
 ];
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
   newValue: ""
 };
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_INPUT":
       return {
@@ -39,7 +39,10 @@ const reducer = (state, action) => {
           if (item.id === action.payload) {
             return {
               ...item,
-              completed: !state.list[index].completed
+              completed: !state.list[index].completed,
+              timestamp: !state.list[index].completed
+                ? moment().format("MM/DD/YY [at] hh:mm:ss")
+                : null
             };
           } else {
             return item;
@@ -56,4 +59,4 @@ const reducer = (state, action) => {
   }
 };
 
-export default [reducer, initialState];
+export default reducer;

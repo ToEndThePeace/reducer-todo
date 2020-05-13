@@ -59,27 +59,39 @@ const StyledApp = styled.div`
   section {
     padding: 20px 10px;
     font-family: "Lato", sans-serif;
-    flex-grow: 1;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
     background: ${colors.med};
     border-top: 1px solid ${colors.blue};
-    .ListItem {
-      cursor: pointer;
-      margin: 2vh 2%;
-      padding: 20px 40px;
-      max-width: 20%;
-      background-color: ${colors.dark};
+    flex-grow: 1;
+    .title {
       color: ${colors.white};
-      border-left: 5px solid ${colors.blue};
-      border-right: 5px solid ${colors.dark};
-      border-radius: 0 10px 10px 0;
-      &.completed {
-        background-color: ${colors.blue};
-        color: ${colors.med};
-        border-right-color: ${colors.blue};
-        text-decoration: line-through;
+      border-bottom: 1px solid ${colors.blue};
+      font-size: 3rem;
+      margin: 0 50% 15px 2%;
+      padding: 0 0 5px;
+    }
+    & > div > div {
+      display: flex;
+      flex-flow: row wrap;
+      align-content: flex-start;
+      .ListItem {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 2vh 2%;
+        padding: 20px 40px;
+        max-width: 30%;
+        background-color: ${colors.dark};
+        color: ${colors.white};
+        border-left: 5px solid ${colors.blue};
+        border-right: 5px solid ${colors.dark};
+        border-radius: 0 10px 10px 0;
+        &.completed {
+          background-color: ${colors.blue};
+          color: ${colors.med};
+          border-right-color: ${colors.blue};
+        }
       }
     }
   }
